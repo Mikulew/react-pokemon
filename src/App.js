@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './layout/Header';
+import HeaderPokemon from './layout/HeaderPokemon';
 
 const App = () => (
-  <div className="container">
-    <Header />
+  <div className="container-fluid">
+    <HeaderPokemon />
   </div>
 );
 
