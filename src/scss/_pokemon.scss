@@ -1,4 +1,5 @@
 .pokemon-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -6,11 +7,21 @@
   padding: 10px 20px;
   min-height: 250px;
   margin: 10px 0;
+  background-color: $white;
   border: {
     width: 1px;
     style: solid;
     color: $grey;
     radius: 2px;
+  }
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  z-index: 10;
+  &:hover {
+    transform: scale(1.2);
+    border: 1px solid transparent;
+    background-color: $grey;
+    z-index: 100;
   }
 }
 
