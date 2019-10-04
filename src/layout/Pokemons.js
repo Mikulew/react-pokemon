@@ -13,6 +13,10 @@ class Pokemons extends Component {
       .then(json => this.setState({ pokemons: json.pokemon }));
   }
 
+  routeChange = id => {
+    this.props.history.push(`/pokemon/${id}`);
+  };
+
   render() {
     const { pokemons } = this.state;
 
@@ -21,7 +25,9 @@ class Pokemons extends Component {
         <div className="row">
           {!pokemons
             ? 'Loading'
-            : pokemons.map(pokemon => <Pokemon key={pokemon.id} {...pokemon} />)}
+            : pokemons.map(pokemon => (
+                <Pokemon key={pokemon.id} {...pokemon} routeChange={this.routeChange} />
+              ))}
         </div>
       </div>
     );
