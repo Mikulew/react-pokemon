@@ -13,8 +13,8 @@ class Pokemons extends Component {
       .then(json => this.setState({ pokemons: json.pokemon }));
   }
 
-  routeChange = id => {
-    this.props.history.push(`/pokemon/${id}`);
+  routeChange = pokemon => {
+    this.props.history.push(`/pokemon/${pokemon.id}`);
   };
 
   render() {
