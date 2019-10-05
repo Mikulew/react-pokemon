@@ -1,5 +1,4 @@
 import React from 'react';
-import './Loader.css';
 // author: "Pokémon Go loader animation" created by Mischa König
 // source: https://codepen.io/michito/pen/NAYPvP
 
