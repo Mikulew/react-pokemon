@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PokemonItem from 'components/PokemonItem/PokemonItem';
 import PropTypes from 'prop-types';
 import Loader from 'components/Loader/Loader';
+import { PageNumberContainer } from 'containers/PageNumberContainer';
 
 class PokemonList extends Component {
   state = {
@@ -28,6 +29,9 @@ class PokemonList extends Component {
           <Loader />
         ) : (
           <div className="container">
+            <div className="row">
+              <PageNumberContainer />
+            </div>
             <div className="row">
               {pokemons.map(pokemon => (
                 <PokemonItem key={pokemon.id} {...pokemon} routeChange={this.routeChange} />

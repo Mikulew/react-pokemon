@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-  activePokemon: {},
+  pokemons: [],
+  activePage: 15,
 };
 
 const rootReducer = (state = INITIAL_STATE, action) => {
@@ -7,7 +8,12 @@ const rootReducer = (state = INITIAL_STATE, action) => {
     case 'GET_POKEMONS':
       return {
         ...state,
-        [action.payload.type]: [...state[action.payload.type], action.payload.pokemons],
+        [action.payload]: [...state[action.payload], action.payload.pokemons],
+      };
+    case 'SET_ACTIVE_PAGE':
+      return {
+        ...state,
+        activePage: action.payload.activePage,
       };
     default:
       return state;
