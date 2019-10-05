@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PokemonItem from 'components/PokemonItem/PokemonItem';
 import PropTypes from 'prop-types';
+import Loader from 'components/Loader/Loader';
 
 class PokemonList extends Component {
   state = {
@@ -22,15 +23,19 @@ class PokemonList extends Component {
     const { pokemons } = this.state;
 
     return (
-      <div className="container">
-        <div className="row">
-          {!pokemons
-            ? 'Loading'
-            : pokemons.map(pokemon => (
+      <>
+        {pokemons.length === 0 ? (
+          <Loader />
+        ) : (
+          <div className="container">
+            <div className="row">
+              {pokemons.map(pokemon => (
                 <PokemonItem key={pokemon.id} {...pokemon} routeChange={this.routeChange} />
               ))}
-        </div>
-      </div>
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }
