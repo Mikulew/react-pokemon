@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Pokemon from 'components/pokemon/Pokemon';
+import PokemonItem from 'components/PokemonItem/PokemonItem';
 import PropTypes from 'prop-types';
 
-class Pokemons extends Component {
+class PokemonList extends Component {
   state = {
     pokemons: [],
   };
@@ -26,7 +26,7 @@ class Pokemons extends Component {
           {!pokemons
             ? 'Loading'
             : pokemons.map(pokemon => (
-                <Pokemon key={pokemon.id} {...pokemon} routeChange={this.routeChange} />
+                <PokemonItem key={pokemon.id} {...pokemon} routeChange={this.routeChange} />
               ))}
         </div>
       </div>
@@ -34,12 +34,12 @@ class Pokemons extends Component {
   }
 }
 
-Pokemons.propTypes = {
+PokemonList.propTypes = {
   pokemons: PropTypes.array.isRequired,
 };
 
-Pokemons.defaultProps = {
+PokemonList.defaultProps = {
   pokemons: [],
 };
 
-export default Pokemons;
+export default PokemonList;

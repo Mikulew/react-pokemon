@@ -1,8 +1,8 @@
 import React from 'react';
-import PokemonType from './PokemonType';
+import PokemonType from './PokemonType/PokemonType';
 import PropTypes from 'prop-types';
 
-const Pokemon = props => {
+const PokemonItem = props => {
   const { name, img, num, type, routeChange } = props;
 
   return (
@@ -20,11 +20,11 @@ const Pokemon = props => {
   );
 };
 
-Pokemon.propTypes = {
+PokemonItem.propTypes = {
   name: PropTypes.string,
   img: PropTypes.string,
   num: PropTypes.string,
   type: PropTypes.array,
 };
 
-export default Pokemon;
+export default PokemonItem;
