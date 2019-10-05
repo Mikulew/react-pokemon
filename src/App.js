@@ -1,10 +1,10 @@
 import React from 'react';
-import HeaderPokemon from './layout/HeaderPokemon';
-import Pokemons from './layout/Pokemons';
-import PokemonDetails from './layout/PokemonDetails';
+import HeaderPokemon from 'layout/HeaderPokemon';
+import Pokemons from 'layout/Pokemons';
+import PokemonDetails from 'layout/PokemonDetails';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from './duck/store';
+import store from 'duck/store';
 
 const App = () => (
   <div className="container-fluid">

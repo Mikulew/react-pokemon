@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ImageSlide from './ImageSlide';
-import ImagesData from '../../assets/js/ImagesData';
+import ImagesData from 'assets/js/ImagesData';
 
 class Carousel extends Component {
   state = {
