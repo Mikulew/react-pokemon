@@ -12,7 +12,6 @@ class PokemonList extends Component {
   componentDidMount() {
     fetch('http://localhost:4000/pokemon')
       .then(res => res.json())
-      // .then(wtf => console.log(wtf.length))
       .then(json => this.setState({ pokemons: json }));
   }
 
