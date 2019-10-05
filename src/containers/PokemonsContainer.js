@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PokemonList from 'components/PokemonList/PokemonList';
-import { addPokemon } from 'duck/actions';
+import { getPokemons } from 'duck/actions';
 
 const mapStateToProps = state => {
   return {
@@ -8,7 +8,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { addPokemon };
+const mapDispatchToProps = { getPokemons };
 
 export const PokemonsContainer = connect(
   mapStateToProps,

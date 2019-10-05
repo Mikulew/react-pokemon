@@ -1,4 +1,4 @@
-export const addPokemon = pokemon => ({
-  type: 'ADD_POKEMON',
-  pokemon,
+export const getPokemons = pokemons => ({
+  type: 'GET_POKEMONS',
+  pokemons,
 });
