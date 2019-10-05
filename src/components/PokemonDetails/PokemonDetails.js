@@ -15,7 +15,19 @@ class PokemonDetails extends Component {
   }
 
   render() {
-    const { num, img, name, type, weaknesses, weight, height } = this.state.pokemon;
+    const {
+      num,
+      img,
+      name,
+      type,
+      weaknesses,
+      weight,
+      height,
+      egg,
+      avg_spawns,
+      spawn_chance,
+      spawn_time,
+    } = this.state.pokemon;
 
     return (
       <div className="container">
@@ -29,22 +41,44 @@ class PokemonDetails extends Component {
                 <div className="card-body">
                   <h3 className="card-title font-weight-bold">{name}</h3>
                   <img className="pokemon-image" src={img} alt={name} />
-                  <div className="pokemon-text-container">
-                    <div className="pokemon-text">
-                      <p className="pokemon-paragraph">Height</p>
-                      <p className="font-weight-bold">{height}</p>
-                    </div>
-                    <div className="pokemon-text">
-                      <p className="pokemon-paragraph">Weight</p>
-                      <p className="font-weight-bold">{weight}</p>
-                    </div>
-                  </div>
+                  <table className="table table-bordered mt-2">
+                    <thead>
+                      <tr>
+                        <th scope="col">Height</th>
+                        <th scope="col">Weight</th>
+                        <th scope="col">Egg</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{height}</td>
+                        <td>{weight}</td>
+                        <td>{egg}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table className="table table-bordered mt-2">
+                    <thead>
+                      <tr>
+                        <th scope="col">Spawn chance</th>
+                        <th scope="col">Average spawns</th>
+                        <th scope="col">Spawn time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{spawn_chance}</td>
+                        <td>{avg_spawns}</td>
+                        <td>{spawn_time}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                   <p className="pokemon-paragraph">Types</p>
                   <PokemonType types={type} />
                   <p className="pokemon-paragraph">Weaknesses</p>
                   <PokemonType types={weaknesses} />
                 </div>
-                <div className="card-footer">
+                <div className="card-footer text-right">
                   <Link className="btn btn-secondary" to="/">
                     Back
                   </Link>
