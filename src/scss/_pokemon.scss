@@ -25,12 +25,25 @@
   }
 }
 
+.pokemon-text-container {
+  display: flex;
+  justify-content: center;
+}
+
+.pokemon-text {
+  margin: 0 15px;
+}
+
 .pokemon-title {
   font: {
     size: 20px;
     weight: 700;
   }
   margin: 0;
+}
+
+.pokemon-paragraph {
+  margin: 15px 0 0 0;
 }
 
 .pokemon-image {

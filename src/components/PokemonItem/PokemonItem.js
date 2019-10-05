@@ -1,5 +1,5 @@
 import React from 'react';
-import PokemonType from './PokemonType/PokemonType';
+import PokemonType from 'components/PokemonType/PokemonType';
 import PropTypes from 'prop-types';
 
 const PokemonItem = props => {
