@@ -36,6 +36,14 @@ class PokemonList extends Component {
       });
   }
 
+  componentDidUpdate(prevProps) {
+    const { limit } = this.props;
+
+    if (prevProps.limit !== limit) {
+      this.getPokemonsList();
+    }
+  }
+
   routeChange = pokemon => {
     this.props.history.push(`/pokemon/${pokemon.id}`);
   };
