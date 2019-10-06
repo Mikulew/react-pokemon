@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PageLimit from 'components/PageLimit/PageLimit';
-import { setLimit } from 'duck/actions';
+import { setLimit, setPage } from 'duck/actions';
 
 const mapStateToProps = state => {
   return {
@@ -8,7 +8,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { setLimit };
+const mapDispatchToProps = { setLimit, setPage };
 
 export const PageLimitContainer = connect(
   mapStateToProps,
