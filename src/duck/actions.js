@@ -1,14 +1,16 @@
+import types from './types';
+
 export const setPokemonsSize = size => ({
-  type: 'SET_POKEMONS_SIZE',
+  type: types.SET_POKEMONS_SIZE,
   payload: { size },
 });
 
 export const setLimit = limit => ({
-  type: 'SET_LIMIT',
+  type: types.SET_LIMIT,
   payload: { limit },
 });
 
 export const setPage = activePage => ({
-  type: 'SET_PAGE',
+  type: types.SET_PAGE,
   payload: { activePage },
 });

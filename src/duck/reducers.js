@@ -1,3 +1,5 @@
+import types from './types';
+
 const INITIAL_STATE = {
   size: null,
   limit: 15,
@@ -6,17 +8,17 @@ const INITIAL_STATE = {
 
 const rootReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'SET_POKEMONS_SIZE':
+    case types.SET_POKEMONS_SIZE:
       return {
         ...state,
         size: action.payload.size,
       };
-    case 'SET_LIMIT':
+    case types.SET_LIMIT:
       return {
         ...state,
         limit: action.payload.limit,
       };
-    case 'SET_PAGE':
+    case types.SET_PAGE:
       return {
         ...state,
         activePage: action.payload.activePage,
