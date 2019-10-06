@@ -38,8 +38,12 @@
 }
 
 .pokemon-image {
-  width: 150px;
-  height: auto;
+  background-color: transparent;
+}
+
+.pokemon-image-placeholder {
+  background-color: $grey;
+  filter: blur(5px);
 }
 
 .pokemon-types {

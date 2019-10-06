@@ -10,3 +10,7 @@ export const MIN_PAGE = 1;
 export const STEP = 1;
 export const SLIDE_TIME_DURATION = 2000;
 export const LIMIT_PAGES_NUMBERS = [5, 15, 25, 50];
+export const POKEMON_ITEM_IMAGE_WIDTH = 150;
+export const POKEMON_ITEM_IMAGE_HEIGHT = 150;
+export const POKEMON_DETAILS_IMAGE_WIDTH = 200;
+export const POKEMON_DETAILS_IMAGE_HEIGHT = 200;

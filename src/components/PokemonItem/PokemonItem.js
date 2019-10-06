@@ -1,6 +1,8 @@
 import React from 'react';
 import PokemonType from 'components/PokemonType/PokemonType';
 import PropTypes from 'prop-types';
+import PokemonImage from 'components/PokemonImage/PokemonImage';
+import { POKEMON_ITEM_IMAGE_WIDTH, POKEMON_ITEM_IMAGE_HEIGHT } from 'constants/constants';
 
 const PokemonItem = props => {
   const { name, img, num, type, routeChange } = props;
@@ -8,7 +10,12 @@ const PokemonItem = props => {
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <div className="pokemon-container" onClick={() => routeChange(props)}>
-        <img className="pokemon-image" src={img} alt={name} />
+        <PokemonImage
+          src={img}
+          alt={name}
+          width={POKEMON_ITEM_IMAGE_WIDTH}
+          height={POKEMON_ITEM_IMAGE_HEIGHT}>
+        </PokemonImage>
         <div>
           <p className="pokemon-title">
             #{num} {name}

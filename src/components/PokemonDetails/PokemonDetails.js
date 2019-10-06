@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PokemonType from 'components/PokemonType/PokemonType';
 import Loader from 'components/Loader/Loader';
+import PokemonImage from 'components/PokemonImage/PokemonImage';
 import { Link } from 'react-router-dom';
-import { DOMAIN } from 'constants/constants';
+import { DOMAIN, POKEMON_DETAILS_IMAGE_WIDTH, POKEMON_DETAILS_IMAGE_HEIGHT } from 'constants/constants';
 
 class PokemonDetails extends Component {
   state = {
@@ -43,7 +44,12 @@ class PokemonDetails extends Component {
                   <div className="card-header">Pokemon #{num}</div>
                   <div className="card-body">
                     <h3 className="card-title font-weight-bold">{name}</h3>
-                    <img className="pokemon-image" src={img} alt={name} />
+                    <PokemonImage
+                      src={img}
+                      alt={name}
+                      width={POKEMON_DETAILS_IMAGE_WIDTH}
+                      height={POKEMON_DETAILS_IMAGE_HEIGHT}>
+                    </PokemonImage>
                     <table className="table table-bordered mt-2">
                       <thead>
                         <tr>
