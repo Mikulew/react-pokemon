@@ -1,14 +1,14 @@
 const INITIAL_STATE = {
-  pokemons: [],
+  size: null,
   activePage: 15,
 };
 
 const rootReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'GET_POKEMONS':
+    case 'SET_POKEMONS_SIZE':
       return {
         ...state,
-        [action.payload]: [...state[action.payload], action.payload.pokemons],
+        size: action.payload.size,
       };
     case 'SET_ACTIVE_PAGE':
       return {

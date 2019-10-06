@@ -10,9 +10,24 @@ class PokemonList extends Component {
   };
 
   componentDidMount() {
+    this.getPokemonsSize();
     fetch('http://localhost:4000/pokemon')
       .then(res => res.json())
-      .then(json => this.setState({ pokemons: json }));
+      .then(json => {
+        this.setState({ pokemons: json });
+      });
+  }
+
+  getPokemonsSize() {
+    const { size, setPokemonsSize } = this.props;
+
+    if (size === null) {
+      fetch('http://localhost:4000/pokemon')
+        .then(res => res.json())
+        .then(json => {
+          setPokemonsSize(json.length);
+        });
+    }
   }
 
   routeChange = pokemon => {
@@ -21,10 +36,11 @@ class PokemonList extends Component {
 
   render() {
     const { pokemons } = this.state;
+    const { size } = this.props;
 
     return (
       <>
-        {pokemons.length === 0 ? (
+        {pokemons.length === 0 || size === null ? (
           <Loader />
         ) : (
           <div className="container">

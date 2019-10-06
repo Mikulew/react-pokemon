@@ -1,6 +1,6 @@
-export const getPokemons = pokemons => ({
-  type: 'GET_POKEMONS',
-  pokemons,
+export const setPokemonsSize = size => ({
+  type: 'SET_POKEMONS_SIZE',
+  payload: { size },
 });
 
 export const setActivePage = activePage => ({
