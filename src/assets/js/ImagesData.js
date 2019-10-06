@@ -1,22 +1,42 @@
+// image source: https://www.tumblr.com/tagged/pokemon-headers
+import PokemonHeader1 from 'assets/images/pokemon_header1.png';
+import PokemonHeader2 from 'assets/images/pokemon_header2.png';
+import PokemonHeader3 from 'assets/images/pokemon_header3.png';
+import PokemonHeader4 from 'assets/images/pokemon_header4.png';
+import PokemonHeader5 from 'assets/images/pokemon_header5.png';
+import PokemonHeader6 from 'assets/images/pokemon_header6.png';
+
 export default [
   {
-    url: 'https://66.media.tumblr.com/7b8ea3a7d758d1cd02cecff608340055/tumblr_oaulnhe3FB1v11ublo8_500.png',
+    url: PokemonHeader1,
+    alt: 'Pokemon Header 1',
     color: '#bed5ef',
   },
   {
-    url: 'https://66.media.tumblr.com/5e8254231563443e76027bec74e16cf4/tumblr_oaulnhe3FB1v11ublo7_500.png',
-    color: '#f5d0dd'
+    url: PokemonHeader2,
+    alt: 'Pokemon Header 2',
+    color: '#f5d0dd',
   },
-  { 
-    url:'https://66.media.tumblr.com/a0105c576a21265b7612d4397e6e67c6/tumblr_oaulnhe3FB1v11ublo9_500.png',
-    color: '#f5a0b9'
+  {
+    url: PokemonHeader3,
+    alt: 'Pokemon Header 3',
+    color: '#f5a0b9',
   },
-  { 
-    url:'https://66.media.tumblr.com/2360429e328c75aadaebc02d9ca66b4a/tumblr_oaulnhe3FB1v11ublo6_500.png',
-    color: '#5574bc'
+  {
+    url: PokemonHeader4,
+    alt: 'Pokemon Header 4',
+    color: '#5574bc',
   },
-  { 
-    url: 'https://66.media.tumblr.com/1d544a582e61616b1a307aad8d3059f7/tumblr_oaulnhe3FB1v11ublo3_500.png',
-    color: '#fff24f'
+  {
+    url: PokemonHeader5,
+    alt: 'Pokemon Header 5',
+    color: '#fff24f',
+  },
+  {
+    url: PokemonHeader6,
+    alt: 'Pokemon Header 6',
+    color: '#4a2b7c',
   },
 ];
+
+// export default [PokemonHeader1, PokemonHeader2, PokemonHeader3, PokemonHeader4, PokemonHeader5];
