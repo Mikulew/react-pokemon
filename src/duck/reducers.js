@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   size: null,
-  activePage: 15,
+  limit: 15,
 };
 
 const rootReducer = (state = INITIAL_STATE, action) => {
@@ -10,10 +10,10 @@ const rootReducer = (state = INITIAL_STATE, action) => {
         ...state,
         size: action.payload.size,
       };
-    case 'SET_ACTIVE_PAGE':
+    case 'SET_LIMIT':
       return {
         ...state,
-        activePage: action.payload.activePage,
+        limit: action.payload.limit,
       };
     default:
       return state;

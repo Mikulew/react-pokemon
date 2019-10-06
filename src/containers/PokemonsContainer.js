@@ -5,6 +5,7 @@ import { setPokemonsSize } from 'duck/actions';
 const mapStateToProps = state => {
   return {
     size: state.size,
+    limit: state.limit,
   };
 };
 

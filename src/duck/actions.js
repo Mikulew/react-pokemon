@@ -3,7 +3,7 @@ export const setPokemonsSize = size => ({
   payload: { size },
 });
 
-export const setActivePage = activePage => ({
-  type: 'SET_ACTIVE_PAGE',
-  payload: { activePage },
+export const setLimit = limit => ({
+  type: 'SET_LIMIT',
+  payload: { limit },
 });

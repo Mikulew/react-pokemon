@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PokemonItem from 'components/PokemonItem/PokemonItem';
 import PropTypes from 'prop-types';
 import Loader from 'components/Loader/Loader';
-import { PageNumberContainer } from 'containers/PageNumberContainer';
+import { PageLimitContainer } from 'containers/PageLimitContainer';
 
 class PokemonList extends Component {
   state = {
@@ -11,11 +11,7 @@ class PokemonList extends Component {
 
   componentDidMount() {
     this.getPokemonsSize();
-    fetch('http://localhost:4000/pokemon')
-      .then(res => res.json())
-      .then(json => {
-        this.setState({ pokemons: json });
-      });
+    this.getPokemonsList();
   }
 
   getPokemonsSize() {
@@ -30,22 +26,32 @@ class PokemonList extends Component {
     }
   }
 
+  getPokemonsList() {
+    const { limit } = this.props;
+
+    fetch(`http://localhost:4000/pokemon?_page=1&_limit=${limit}`)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({ pokemons: json });
+      });
+  }
+
   routeChange = pokemon => {
     this.props.history.push(`/pokemon/${pokemon.id}`);
   };
 
   render() {
     const { pokemons } = this.state;
-    const { size } = this.props;
+    const { limit } = this.props;
 
     return (
       <>
-        {pokemons.length === 0 || size === null ? (
+        {pokemons.length === 0 || limit === null ? (
           <Loader />
         ) : (
           <div className="container">
             <div className="row">
-              <PageNumberContainer />
+              <PageLimitContainer />
             </div>
             <div className="row">
               {pokemons.map(pokemon => (
