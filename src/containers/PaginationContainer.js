@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import PokemonList from 'components/PokemonList/PokemonList';
-import { setPokemonsSize } from 'duck/actions';
+import Pagination from 'components/Pagination/Pagination';
+import { setPage } from 'duck/actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,9 +10,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { setPokemonsSize };
+const mapDispatchToProps = { setPage };
 
-export const PokemonsContainer = connect(
+export const PaginationContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PokemonList);
+)(Pagination);

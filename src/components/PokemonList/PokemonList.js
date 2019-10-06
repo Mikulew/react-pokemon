@@ -3,6 +3,7 @@ import PokemonItem from 'components/PokemonItem/PokemonItem';
 import PropTypes from 'prop-types';
 import Loader from 'components/Loader/Loader';
 import { PageLimitContainer } from 'containers/PageLimitContainer';
+import { PaginationContainer } from 'containers/PaginationContainer';
 
 class PokemonList extends Component {
   state = {
@@ -27,9 +28,9 @@ class PokemonList extends Component {
   }
 
   getPokemonsList() {
-    const { limit } = this.props;
+    const { limit, activePage } = this.props;
 
-    fetch(`http://localhost:4000/pokemon?_page=1&_limit=${limit}`)
+    fetch(`http://localhost:4000/pokemon?_page=${activePage}&_limit=${limit}`)
       .then(res => res.json())
       .then(json => {
         this.setState({ pokemons: json });
@@ -37,9 +38,9 @@ class PokemonList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { limit } = this.props;
+    const { limit, activePage } = this.props;
 
-    if (prevProps.limit !== limit) {
+    if (prevProps.limit !== limit || prevProps.activePage !== activePage) {
       this.getPokemonsList();
     }
   }
@@ -65,6 +66,9 @@ class PokemonList extends Component {
               {pokemons.map(pokemon => (
                 <PokemonItem key={pokemon.id} {...pokemon} routeChange={this.routeChange} />
               ))}
+            </div>
+            <div className="row">
+              <PaginationContainer />
             </div>
           </div>
         )}
