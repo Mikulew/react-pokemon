@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ImageSlide from './ImageSlide';
 import ImagesData from 'assets/js/ImagesData';
+import { SLIDE_TIME_DURATION } from 'constants/constants';
 
 class Carousel extends Component {
   state = {
@@ -19,7 +20,7 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.nextSlide(), 2000);
+    setInterval(() => this.nextSlide(), SLIDE_TIME_DURATION);
   }
 
   render() {

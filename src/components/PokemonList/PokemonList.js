@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Loader from 'components/Loader/Loader';
 import { PageLimitContainer } from 'containers/PageLimitContainer';
 import { PaginationContainer } from 'containers/PaginationContainer';
+import { DOMAIN } from 'constants/constants';
 
 class PokemonList extends Component {
   state = {
@@ -19,7 +20,7 @@ class PokemonList extends Component {
     const { size, setPokemonsSize } = this.props;
 
     if (size === null) {
-      fetch('http://localhost:4000/pokemon')
+      fetch(`${DOMAIN}`)
         .then(res => res.json())
         .then(json => {
           setPokemonsSize(json.length);
@@ -30,7 +31,7 @@ class PokemonList extends Component {
   getPokemonsList() {
     const { limit, activePage } = this.props;
 
-    fetch(`http://localhost:4000/pokemon?_page=${activePage}&_limit=${limit}`)
+    fetch(`${DOMAIN}?_page=${activePage}&_limit=${limit}`)
       .then(res => res.json())
       .then(json => {
         this.setState({ pokemons: json });

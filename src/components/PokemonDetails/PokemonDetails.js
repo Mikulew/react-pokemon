@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PokemonType from 'components/PokemonType/PokemonType';
 import Loader from 'components/Loader/Loader';
 import { Link } from 'react-router-dom';
+import { DOMAIN } from 'constants/constants';
 
 class PokemonDetails extends Component {
   state = {
@@ -10,7 +11,7 @@ class PokemonDetails extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    fetch(`http://localhost:4000/pokemon/${id}`)
+    fetch(`${DOMAIN}/${id}`)
       .then(res => res.json())
       .then(json => this.setState({ pokemon: json }));
   }

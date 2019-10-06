@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { LIMIT_PAGES_NUMBERS } from 'constants/constants';
 
 class PageLimit extends Component {
   state = {
-    pageLimits: [5, 15, 25, 50],
+    pageLimits: LIMIT_PAGES_NUMBERS,
   };
 
   render() {

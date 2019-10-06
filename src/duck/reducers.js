@@ -1,10 +1,5 @@
 import types from './types';
-
-const INITIAL_STATE = {
-  size: null,
-  limit: 15,
-  activePage: 1,
-};
+import { INITIAL_STATE } from 'constants/constants';
 
 const rootReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

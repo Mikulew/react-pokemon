@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
-const LEFT_PAGE = 'LEFT';
-const RIGHT_PAGE = 'RIGHT';
+import { LEFT_PAGE, RIGHT_PAGE, MIN_PAGE, STEP } from 'constants/constants';
 
 class Pagination extends Component {
   state = {
@@ -12,7 +10,7 @@ class Pagination extends Component {
     this.fetchPageNumbers();
   }
 
-  range = (from, to, step = 1) => {
+  range = (from, to, step = STEP) => {
     const range = [];
 
     while (from <= to) {
@@ -41,6 +39,7 @@ class Pagination extends Component {
   render() {
     const { setPage, activePage } = this.props;
     const { pages } = this.state;
+    const MAX_PAGE = pages[pages.length - 2];
 
     return (
       <div className="col-12 mt-2">
@@ -49,11 +48,14 @@ class Pagination extends Component {
             {pages.map((page, index) => {
               if (page === LEFT_PAGE)
                 return (
-                  <li key={index} className={activePage !== 1 ? 'page-item' : 'page-item disabled'}>
+                  <li
+                    key={index}
+                    className={activePage !== MIN_PAGE ? 'page-item' : 'page-item disabled'}
+                  >
                     <button
-                      className={activePage !== 1 ? 'page-link' : 'page-link disabled'}
+                      className={activePage !== MIN_PAGE ? 'page-link' : 'page-link disabled'}
                       aria-label="Previous"
-                      onClick={() => setPage(activePage - 1)}
+                      onClick={() => setPage(activePage - STEP)}
                     >
                       <span aria-hidden="true">&laquo;</span>
                       <span className="sr-only">Previous</span>
@@ -64,16 +66,12 @@ class Pagination extends Component {
                 return (
                   <li
                     key={index}
-                    className={
-                      activePage !== pages[pages.length - 2] ? 'page-item' : 'page-item disabled'
-                    }
+                    className={activePage !== MAX_PAGE ? 'page-item' : 'page-item disabled'}
                   >
                     <button
-                      className={
-                        activePage !== pages[pages.length - 2] ? 'page-link' : 'page-link disabled'
-                      }
+                      className={activePage !== MAX_PAGE ? 'page-link' : 'page-link disabled'}
                       aria-label="Next"
-                      onClick={() => setPage(activePage + 1)}
+                      onClick={() => setPage(activePage + STEP)}
                     >
                       <span aria-hidden="true">&raquo;</span>
                       <span className="sr-only">Next</span>
