@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
 import PokemonList from 'components/PokemonList/PokemonList';
-import { setPokemonsSize } from 'duck/actions';
+import { setPokemonsSize, setPage } from 'duck/actions';
 
 const mapStateToProps = state => {
   return {
     size: state.size,
     limit: state.limit,
     activePage: state.activePage,
+    pageNumbers: state.pageNumbers,
   };
 };
 
-const mapDispatchToProps = { setPokemonsSize };
+const mapDispatchToProps = { setPokemonsSize, setPage };
 
 export const PokemonsContainer = connect(
   mapStateToProps,
