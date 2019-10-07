@@ -18,6 +18,11 @@ const rootReducer = (state = INITIAL_STATE, action) => {
         ...state,
         activePage: action.payload.activePage,
       };
+    case types.SET_PAGE_NUMBERS:
+      return {
+        ...state,
+        pageNumbers: action.payload.pageNumbers,
+      };
     default:
       return state;
   }

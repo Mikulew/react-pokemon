@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Pagination from 'components/Pagination/Pagination';
-import { setPage } from 'duck/actions';
+import { setPage, setPageNumbers } from 'duck/actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = { setPage };
+const mapDispatchToProps = { setPage, setPageNumbers };
 
 export const PaginationContainer = connect(
   mapStateToProps,

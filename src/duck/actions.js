@@ -14,3 +14,8 @@ export const setPage = activePage => ({
   type: types.SET_PAGE,
   payload: { activePage },
 });
+
+export const setPageNumbers = pageNumbers => ({
+  type: types.SET_PAGE_NUMBERS,
+  payload: { pageNumbers },
+});

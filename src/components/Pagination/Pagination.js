@@ -24,6 +24,7 @@ class Pagination extends Component {
   fetchPageNumbers = () => {
     const { limit, size } = this.props;
     const totalPages = Math.ceil(size / limit);
+    this.props.setPageNumbers(totalPages);
     const pages = this.range(1, totalPages);
     this.setState({ pages: [LEFT_PAGE, ...pages, RIGHT_PAGE] });
   };
