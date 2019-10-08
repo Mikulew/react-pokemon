@@ -16,7 +16,7 @@ As a kid growing up in the 90s, we've all wondered about this; catching Pokémon
 - SASS/CSS
 - React/Redux
 - JavaScript (ES6)
-- NPM
+- npm
 
 ## Setup
 
