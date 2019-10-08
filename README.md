@@ -32,7 +32,7 @@ npm install
 npm run start
 ```
 
-> In the other terminals you need to write the command.
+> In the second terminal you need to write and run the command.
 
 ```bash
 # there is access to data and serve Pokémon API at localhost:4000 thanks to this the application will work
