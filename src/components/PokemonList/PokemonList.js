@@ -48,9 +48,9 @@ class PokemonList extends Component {
   }
 
   checkPokemonsLimit(limit) {
-    const { pageNumbers, size, setPage } = this.props;
+    const { pageNumbers, size, setPage, activePage } = this.props;
     const currentTotalPages = Math.ceil(size / limit);
-    if (pageNumbers > currentTotalPages) {
+    if (pageNumbers > currentTotalPages && activePage > currentTotalPages) {
       setPage(currentTotalPages);
     }
   }
