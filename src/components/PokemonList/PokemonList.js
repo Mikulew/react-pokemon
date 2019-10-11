@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PokemonItem from 'components/PokemonItem/PokemonItem';
 import PropTypes from 'prop-types';
 import Loader from 'components/Loader/Loader';
+import Page404 from 'components/Page404/Page404';
 import { PageLimitContainer } from 'containers/PageLimitContainer';
 import { PaginationContainer } from 'containers/PaginationContainer';
 import { BASE_URL } from 'constants/constants';
@@ -9,6 +10,7 @@ import { BASE_URL } from 'constants/constants';
 class PokemonList extends Component {
   state = {
     pokemons: [],
+    error: false,
   };
 
   componentDidMount() {
@@ -28,16 +30,19 @@ class PokemonList extends Component {
     }
   }
 
-  async getPokemonsList() {
+  getPokemonsList = async () => {
     const { limit, activePage } = this.props;
     try {
       const response = await fetch(`${BASE_URL}?_page=${activePage}&_limit=${limit}`);
       const data = await response.json();
+      if (response.status === 404 || response.status === 500) {
+        throw response;
+      }
       return this.setState({ pokemons: data });
     } catch (e) {
-      console.log(e);
+      this.setState({ error: true });
     }
-  }
+  };
 
   componentDidUpdate(prevProps) {
     const { limit, activePage } = this.props;
@@ -66,7 +71,9 @@ class PokemonList extends Component {
 
     return (
       <>
-        {pokemons.length === 0 || limit === null ? (
+        {this.state.error ? (
+          <Page404 />
+        ) : pokemons.length === 0 || limit === null ? (
           <Loader />
         ) : (
           <div className="container">

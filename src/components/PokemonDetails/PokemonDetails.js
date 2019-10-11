@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PokemonType from 'components/PokemonType/PokemonType';
 import Loader from 'components/Loader/Loader';
 import PokemonImage from 'components/PokemonImage/PokemonImage';
+import Page404 from 'components/Page404/Page404';
 import { Link } from 'react-router-dom';
 import {
   BASE_URL,
@@ -12,23 +13,26 @@ import {
 class PokemonDetails extends Component {
   state = {
     pokemon: {},
+    error: false,
   };
 
   componentDidMount() {
     this.getPokemon();
   }
 
-  async getPokemon() {
-    const id = this.props.match.params.id;
-
+  getPokemon = async () => {
     try {
+      const id = this.props.match.params.id;
       const response = await fetch(`${BASE_URL}/${id}`);
       const data = await response.json();
-      return this.setState({ pokemon: data });
+      if (response.status === 404 || response.status === 500) {
+        throw response;
+      }
+      this.setState({ pokemon: data });
     } catch (e) {
-      console.log(e);
+      this.setState({ error: true });
     }
-  }
+  };
 
   render() {
     const {
@@ -47,7 +51,9 @@ class PokemonDetails extends Component {
 
     return (
       <>
-        {Object.entries(this.state.pokemon).length === 0 ? (
+        {this.state.error ? (
+          <Page404 />
+        ) : Object.entries(this.state.pokemon).length === 0 ? (
           <Loader />
         ) : (
           <div className="container">
