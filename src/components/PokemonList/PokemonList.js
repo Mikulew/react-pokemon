@@ -28,14 +28,15 @@ class PokemonList extends Component {
     }
   }
 
-  getPokemonsList() {
+  async getPokemonsList() {
     const { limit, activePage } = this.props;
-
-    fetch(`${BASE_URL}?_page=${activePage}&_limit=${limit}`)
-      .then(res => res.json())
-      .then(json => {
-        this.setState({ pokemons: json });
-      });
+    try {
+      const response = await fetch(`${BASE_URL}?_page=${activePage}&_limit=${limit}`);
+      const data = await response.json();
+      return this.setState({ pokemons: data });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   componentDidUpdate(prevProps) {

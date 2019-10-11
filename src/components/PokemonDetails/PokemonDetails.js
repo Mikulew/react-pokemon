@@ -3,7 +3,11 @@ import PokemonType from 'components/PokemonType/PokemonType';
 import Loader from 'components/Loader/Loader';
 import PokemonImage from 'components/PokemonImage/PokemonImage';
 import { Link } from 'react-router-dom';
-import { BASE_URL, POKEMON_DETAILS_IMAGE_WIDTH, POKEMON_DETAILS_IMAGE_HEIGHT } from 'constants/constants';
+import {
+  BASE_URL,
+  POKEMON_DETAILS_IMAGE_WIDTH,
+  POKEMON_DETAILS_IMAGE_HEIGHT,
+} from 'constants/constants';
 
 class PokemonDetails extends Component {
   state = {
@@ -11,10 +15,19 @@ class PokemonDetails extends Component {
   };
 
   componentDidMount() {
+    this.getPokemon();
+  }
+
+  async getPokemon() {
     const id = this.props.match.params.id;
-    fetch(`${BASE_URL}/${id}`)
-      .then(res => res.json())
-      .then(json => this.setState({ pokemon: json }));
+
+    try {
+      const response = await fetch(`${BASE_URL}/${id}`);
+      const data = await response.json();
+      return this.setState({ pokemon: data });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   render() {
@@ -48,8 +61,8 @@ class PokemonDetails extends Component {
                       src={img}
                       alt={name}
                       width={POKEMON_DETAILS_IMAGE_WIDTH}
-                      height={POKEMON_DETAILS_IMAGE_HEIGHT}>
-                    </PokemonImage>
+                      height={POKEMON_DETAILS_IMAGE_HEIGHT}
+                    ></PokemonImage>
                     <table className="table table-bordered mt-2">
                       <thead>
                         <tr>
