@@ -1,4 +1,4 @@
-export const DOMAIN = 'http://localhost:4000/pokemon';
+export const BASE_URL = 'http://localhost:4000/pokemon';
 export const INITIAL_STATE = {
   size: null,
   limit: 15,

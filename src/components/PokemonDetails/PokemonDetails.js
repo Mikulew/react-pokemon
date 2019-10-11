@@ -3,7 +3,7 @@ import PokemonType from 'components/PokemonType/PokemonType';
 import Loader from 'components/Loader/Loader';
 import PokemonImage from 'components/PokemonImage/PokemonImage';
 import { Link } from 'react-router-dom';
-import { DOMAIN, POKEMON_DETAILS_IMAGE_WIDTH, POKEMON_DETAILS_IMAGE_HEIGHT } from 'constants/constants';
+import { BASE_URL, POKEMON_DETAILS_IMAGE_WIDTH, POKEMON_DETAILS_IMAGE_HEIGHT } from 'constants/constants';
 
 class PokemonDetails extends Component {
   state = {
@@ -12,7 +12,7 @@ class PokemonDetails extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    fetch(`${DOMAIN}/${id}`)
+    fetch(`${BASE_URL}/${id}`)
       .then(res => res.json())
       .then(json => this.setState({ pokemon: json }));
   }
