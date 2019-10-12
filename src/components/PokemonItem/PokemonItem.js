@@ -5,11 +5,17 @@ import PokemonImage from 'components/PokemonImage/PokemonImage';
 import { POKEMON_ITEM_IMAGE_WIDTH, POKEMON_ITEM_IMAGE_HEIGHT } from 'constants/constants';
 
 const PokemonItem = props => {
-  const { name, img, num, type, routeChange } = props;
+  const { id, name, img, num, type, routeChange } = props;
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-      <div className="pokemon-container" onClick={() => routeChange(props)}>
+      <div
+        className="pokemon-container"
+        onClick={() => routeChange(props)}
+        onKeyPress={() => routeChange(props)}
+        role="button"
+        tabIndex={id}
+      >
         <PokemonImage
           src={img}
           alt={name}
@@ -28,6 +34,7 @@ const PokemonItem = props => {
 };
 
 PokemonItem.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   num: PropTypes.string.isRequired,

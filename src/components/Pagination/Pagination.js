@@ -21,10 +21,11 @@ class Pagination extends Component {
 
   range = (from, to, step = STEP) => {
     const range = [];
+    let fromParameter = from;
 
-    while (from <= to) {
-      range.push(from);
-      from += step;
+    while (fromParameter <= to) {
+      range.push(fromParameter);
+      fromParameter += step;
     }
 
     return range;

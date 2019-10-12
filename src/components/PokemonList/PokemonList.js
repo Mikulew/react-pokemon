@@ -71,35 +71,43 @@ class PokemonList extends Component {
   render() {
     const { pokemons, error } = this.state;
     const { limit } = this.props;
+    const hasPokemons = pokemons.length === 0 || limit === null;
+
+    if (error) {
+      return <Page404 />;
+    }
+    if (hasPokemons) {
+      return <Loader />;
+    }
 
     return (
-      <>
-        {error ? (
-          <Page404 />
-        ) : pokemons.length === 0 || limit === null ? (
-          <Loader />
-        ) : (
-          <div className="container">
-            <div className="row">
-              <PageLimitContainer />
-            </div>
-            <div className="row">
-              {pokemons.map(pokemon => (
-                <PokemonItem key={pokemon.id} {...pokemon} routeChange={this.routeChange} />
-              ))}
-            </div>
-            <div className="row">
-              <PaginationContainer />
-            </div>
-          </div>
-        )}
-      </>
+      <div className="container">
+        <div className="row">
+          <PageLimitContainer />
+        </div>
+        <div className="row">
+          {pokemons.map(pokemon => (
+            <PokemonItem
+              id={pokemon.id}
+              key={pokemon.id}
+              name={pokemon.name}
+              alt={pokemon.alt}
+              num={pokemon.num}
+              type={pokemon.type}
+              img={pokemon.img}
+              routeChange={this.routeChange}
+            />
+          ))}
+        </div>
+        <div className="row">
+          <PaginationContainer />
+        </div>
+      </div>
     );
   }
 }
 
 PokemonList.propTypes = {
-  pokemons: PropTypes.arrayOf(PropTypes.shape({})),
   limit: PropTypes.number.isRequired,
   activePage: PropTypes.number.isRequired,
   pageNumbers: PropTypes.number,
@@ -112,7 +120,6 @@ PokemonList.propTypes = {
 };
 
 PokemonList.defaultProps = {
-  pokemons: [],
   pageNumbers: null,
   size: null,
 };
