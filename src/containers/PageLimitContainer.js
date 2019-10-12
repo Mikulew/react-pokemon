@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = { setLimit };
 
-export const PageLimitContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(PageLimit);

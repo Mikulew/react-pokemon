@@ -1,6 +1,6 @@
 import React from 'react';
 import PokemonHeader from 'components/PokemonHeader/PokemonHeader';
-import { PokemonsContainer } from 'containers/PokemonsContainer';
+import PokemonsContainer from 'containers/PokemonsContainer';
 import PokemonDetails from 'components/PokemonDetails/PokemonDetails';
 import Page404 from 'components/Page404/Page404';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';

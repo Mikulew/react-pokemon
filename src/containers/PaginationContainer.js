@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = { setPage, setPageNumbers };
 
-export const PaginationContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Pagination);

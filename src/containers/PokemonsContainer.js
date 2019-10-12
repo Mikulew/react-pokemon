@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = { setPokemonsSize, setPage };
 
-export const PokemonsContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(PokemonList);

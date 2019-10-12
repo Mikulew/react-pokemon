@@ -3,8 +3,8 @@ import PokemonItem from 'components/PokemonItem/PokemonItem';
 import PropTypes from 'prop-types';
 import Loader from 'components/Loader/Loader';
 import Page404 from 'components/Page404/Page404';
-import { PageLimitContainer } from 'containers/PageLimitContainer';
-import { PaginationContainer } from 'containers/PaginationContainer';
+import PageLimitContainer from 'containers/PageLimitContainer';
+import PaginationContainer from 'containers/PaginationContainer';
 import { BASE_URL } from 'constants/constants';
 
 class PokemonList extends Component {
