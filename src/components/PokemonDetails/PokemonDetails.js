@@ -22,7 +22,11 @@ class PokemonDetails extends Component {
 
   getPokemon = async () => {
     try {
-      const id = this.props.match.params.id;
+      const {
+        match: {
+          params: { id },
+        },
+      } = this.props;
       const response = await fetch(`${BASE_URL}/${id}`);
       const data = await response.json();
       if (response.status === 404 || response.status === 500) {
@@ -36,24 +40,28 @@ class PokemonDetails extends Component {
 
   render() {
     const {
-      num,
-      img,
-      name,
-      type,
-      weaknesses,
-      weight,
-      height,
-      egg,
-      avg_spawns,
-      spawn_chance,
-      spawn_time,
-    } = this.state.pokemon;
+      pokemon,
+      pokemon: {
+        num,
+        img,
+        name,
+        type,
+        weaknesses,
+        weight,
+        height,
+        egg,
+        avg_spawns,
+        spawn_chance,
+        spawn_time,
+      },
+      error,
+    } = this.state;
 
     return (
       <>
-        {this.state.error ? (
+        {error ? (
           <Page404 />
-        ) : Object.entries(this.state.pokemon).length === 0 ? (
+        ) : Object.entries(pokemon).length === 0 ? (
           <Loader />
         ) : (
           <div className="container">
@@ -68,7 +76,7 @@ class PokemonDetails extends Component {
                       alt={name}
                       width={POKEMON_DETAILS_IMAGE_WIDTH}
                       height={POKEMON_DETAILS_IMAGE_HEIGHT}
-                    ></PokemonImage>
+                    />
                     <table className="table table-bordered mt-2">
                       <thead>
                         <tr>

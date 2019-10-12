@@ -3,7 +3,8 @@
   "parser": "babel-eslint",
   "globals": {
     "window": true,
-    "document": true
+    "document": true,
+    "fetch": true
   },
   "rules": {
     "react/jsx-filename-extension": [
@@ -12,6 +13,8 @@
         "extensions": [".js"]
       }
     ],
-    "react/state-in-constructor": [2, "never"]
+    "react/state-in-constructor": [2, "never"],
+    "import/no-unresolved": 0,
+    "camelcase": ["error", { "allow": ["avg_spawns", "spawn_chance", "spawn_time"] }]
   }
 }
