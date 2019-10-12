@@ -14,8 +14,8 @@ const PokemonItem = props => {
           src={img}
           alt={name}
           width={POKEMON_ITEM_IMAGE_WIDTH}
-          height={POKEMON_ITEM_IMAGE_HEIGHT}>
-        </PokemonImage>
+          height={POKEMON_ITEM_IMAGE_HEIGHT}
+        ></PokemonImage>
         <div>
           <p className="pokemon-title">
             #{num} {name}
@@ -28,10 +28,11 @@ const PokemonItem = props => {
 };
 
 PokemonItem.propTypes = {
-  name: PropTypes.string,
-  img: PropTypes.string,
-  num: PropTypes.string,
-  type: PropTypes.array,
+  name: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  num: PropTypes.string.isRequired,
+  type: PropTypes.arrayOf(PropTypes.string).isRequired,
+  routeChange: PropTypes.func.isRequired,
 };
 
 export default PokemonItem;

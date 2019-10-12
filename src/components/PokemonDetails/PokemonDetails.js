@@ -9,6 +9,7 @@ import {
   POKEMON_DETAILS_IMAGE_WIDTH,
   POKEMON_DETAILS_IMAGE_HEIGHT,
 } from 'constants/constants';
+import PropTypes from 'prop-types';
 
 class PokemonDetails extends Component {
   state = {
@@ -128,5 +129,13 @@ class PokemonDetails extends Component {
     );
   }
 }
+
+PokemonDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default PokemonDetails;

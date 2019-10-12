@@ -24,9 +24,11 @@ class Carousel extends Component {
   }
 
   render() {
+    const { currentImageIndex } = this.state;
+
     return (
       <div className="carousel">
-        <ImageSlide data={ImagesData[this.state.currentImageIndex]} />
+        <ImageSlide data={ImagesData[currentImageIndex]} />
       </div>
     );
   }

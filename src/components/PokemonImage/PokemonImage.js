@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class PokemonImage extends Component {
   state = { isLoaded: false };
@@ -12,9 +13,23 @@ class PokemonImage extends Component {
     const { isLoaded } = this.state;
 
     return (
-        <img alt={alt} height={height} src={src} width={width} className={isLoaded ? "pokemon-image" : "pokemon-image-placeholder"} onLoad={this.handleImageLoaded} />
+      <img
+        alt={alt}
+        height={height}
+        src={src}
+        width={width}
+        className={isLoaded ? 'pokemon-image' : 'pokemon-image-placeholder'}
+        onLoad={this.handleImageLoaded}
+      />
     );
   }
 }
+
+PokemonImage.propTypes = {
+  alt: PropTypes.string.isRequired,
+  height: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+  src: PropTypes.string.isRequired,
+};
 
 export default PokemonImage;

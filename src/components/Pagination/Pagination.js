@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { LEFT_PAGE, RIGHT_PAGE, MIN_PAGE, STEP } from 'constants/constants';
+import PropTypes from 'prop-types';
 
 class Pagination extends Component {
   state = {
@@ -22,9 +23,9 @@ class Pagination extends Component {
   };
 
   fetchPageNumbers = () => {
-    const { limit, size } = this.props;
+    const { limit, size, setPageNumbers } = this.props;
     const totalPages = Math.ceil(size / limit);
-    this.props.setPageNumbers(totalPages);
+    setPageNumbers(totalPages);
     const pages = this.range(1, totalPages);
     this.setState({ pages: [LEFT_PAGE, ...pages, RIGHT_PAGE] });
   };
@@ -93,5 +94,13 @@ class Pagination extends Component {
     );
   }
 }
+
+Pagination.propTypes = {
+  limit: PropTypes.number.isRequired,
+  size: PropTypes.number.isRequired,
+  activePage: PropTypes.number.isRequired,
+  setPageNumbers: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired,
+};
 
 export default Pagination;

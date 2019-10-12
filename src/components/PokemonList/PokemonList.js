@@ -62,7 +62,10 @@ class PokemonList extends Component {
   }
 
   routeChange = pokemon => {
-    this.props.history.push(`/pokemon/${pokemon.id}`);
+    const {
+      history: { push },
+    } = this.props;
+    push(`/pokemon/${pokemon.id}`);
   };
 
   render() {
@@ -96,11 +99,22 @@ class PokemonList extends Component {
 }
 
 PokemonList.propTypes = {
-  pokemons: PropTypes.array.isRequired,
+  pokemons: PropTypes.arrayOf(PropTypes.shape({})),
+  limit: PropTypes.number.isRequired,
+  activePage: PropTypes.number.isRequired,
+  pageNumbers: PropTypes.number,
+  size: PropTypes.number,
+  setPokemonsSize: PropTypes.func.isRequired,
+  setPage: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 PokemonList.defaultProps = {
   pokemons: [],
+  pageNumbers: null,
+  size: null,
 };
 
 export default PokemonList;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { LIMIT_PAGES_NUMBERS } from 'constants/constants';
+import PropTypes from 'prop-types';
 
 class PageLimit extends Component {
   state = {
@@ -24,5 +25,10 @@ class PageLimit extends Component {
     );
   }
 }
+
+PageLimit.propTypes = {
+  setLimit: PropTypes.func.isRequired,
+  limit: PropTypes.number.isRequired,
+};
 
 export default PageLimit;
