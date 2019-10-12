@@ -10,6 +10,7 @@ import {
   POKEMON_DETAILS_IMAGE_HEIGHT,
 } from 'constants/constants';
 import PropTypes from 'prop-types';
+import PokemonDetailsTable from './PokemonDetailsTable';
 
 class PokemonDetails extends Component {
   state = {
@@ -58,6 +59,34 @@ class PokemonDetails extends Component {
       error,
     } = this.state;
     const hasPokemon = Object.entries(pokemon).length === 0;
+    const PokemonData1 = [
+      {
+        name: 'Height',
+        value: height,
+      },
+      {
+        name: 'Weight',
+        value: weight,
+      },
+      {
+        name: 'Egg',
+        value: egg,
+      },
+    ];
+    const PokemonData2 = [
+      {
+        name: 'Spawn chance',
+        value: spawn_chance,
+      },
+      {
+        name: 'Average spawns',
+        value: avg_spawns,
+      },
+      {
+        name: 'Spawn time',
+        value: spawn_time,
+      },
+    ];
 
     if (error) {
       return <Page404 />;
@@ -80,38 +109,8 @@ class PokemonDetails extends Component {
                   width={POKEMON_DETAILS_IMAGE_WIDTH}
                   height={POKEMON_DETAILS_IMAGE_HEIGHT}
                 />
-                <table className="table table-bordered mt-2">
-                  <thead>
-                    <tr>
-                      <th scope="col">Height</th>
-                      <th scope="col">Weight</th>
-                      <th scope="col">Egg</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{height}</td>
-                      <td>{weight}</td>
-                      <td>{egg}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table className="table table-bordered mt-2">
-                  <thead>
-                    <tr>
-                      <th scope="col">Spawn chance</th>
-                      <th scope="col">Average spawns</th>
-                      <th scope="col">Spawn time</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{spawn_chance}</td>
-                      <td>{avg_spawns}</td>
-                      <td>{spawn_time}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <PokemonDetailsTable data={PokemonData1} />
+                <PokemonDetailsTable data={PokemonData2} />
                 <p className="pokemon-paragraph">Types</p>
                 <PokemonType types={type} />
                 <p className="pokemon-paragraph">Weaknesses</p>
