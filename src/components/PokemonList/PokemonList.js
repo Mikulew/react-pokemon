@@ -18,6 +18,15 @@ class PokemonList extends Component {
     this.getPokemonsList();
   }
 
+  componentDidUpdate(prevProps) {
+    const { limit, activePage } = this.props;
+
+    if (prevProps.limit !== limit || prevProps.activePage !== activePage) {
+      this.checkPokemonsLimit(limit);
+      this.getPokemonsList();
+    }
+  }
+
   getPokemonsSize() {
     const { size, setPokemonsSize } = this.props;
 
@@ -40,18 +49,16 @@ class PokemonList extends Component {
       }
       return this.setState({ pokemons: data });
     } catch (e) {
-      this.setState({ error: true });
+      return this.setState({ error: true });
     }
   };
 
-  componentDidUpdate(prevProps) {
-    const { limit, activePage } = this.props;
-
-    if (prevProps.limit !== limit || prevProps.activePage !== activePage) {
-      this.checkPokemonsLimit(limit);
-      this.getPokemonsList();
-    }
-  }
+  routeChange = pokemon => {
+    const {
+      history: { push },
+    } = this.props;
+    push(`/pokemon/${pokemon.id}`);
+  };
 
   checkPokemonsLimit(limit) {
     const { pageNumbers, size, setPage, activePage } = this.props;
@@ -61,20 +68,13 @@ class PokemonList extends Component {
     }
   }
 
-  routeChange = pokemon => {
-    const {
-      history: { push },
-    } = this.props;
-    push(`/pokemon/${pokemon.id}`);
-  };
-
   render() {
-    const { pokemons } = this.state;
+    const { pokemons, error } = this.state;
     const { limit } = this.props;
 
     return (
       <>
-        {this.state.error ? (
+        {error ? (
           <Page404 />
         ) : pokemons.length === 0 || limit === null ? (
           <Loader />

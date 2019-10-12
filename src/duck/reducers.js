@@ -1,5 +1,5 @@
-import types from './types';
 import { INITIAL_STATE } from 'constants/constants';
+import types from './types';
 
 const rootReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {

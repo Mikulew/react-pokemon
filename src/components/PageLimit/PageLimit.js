@@ -10,12 +10,13 @@ class PageLimit extends Component {
   render() {
     const { setLimit, limit } = this.props;
     const { pageLimits } = this.state;
+
     return (
       <nav className="pagination-container">
         <ul className="pagination">
-          {pageLimits.map((pageLimit, index) => (
-            <li className={limit === pageLimit ? 'page-item active' : 'page-item'} key={index}>
-              <button onClick={() => setLimit(pageLimit)} className="page-link">
+          {pageLimits.map(pageLimit => (
+            <li className={limit === pageLimit ? 'page-item active' : 'page-item'} key={pageLimit}>
+              <button onClick={() => setLimit(pageLimit)} className="page-link" type="button">
                 {pageLimit}
               </button>
             </li>

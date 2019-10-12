@@ -15,7 +15,7 @@ const PokemonItem = props => {
           alt={name}
           width={POKEMON_ITEM_IMAGE_WIDTH}
           height={POKEMON_ITEM_IMAGE_HEIGHT}
-        ></PokemonImage>
+        />
         <div>
           <p className="pokemon-title">
             #{num} {name}

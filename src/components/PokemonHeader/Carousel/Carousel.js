@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import ImageSlide from './ImageSlide';
-import ImagesData from 'assets/js/ImagesData';
 import { SLIDE_TIME_DURATION } from 'constants/constants';
+import ImagesData from 'assets/js/ImagesData';
+import ImageSlide from './ImageSlide';
 
 class Carousel extends Component {
   state = {
     currentImageIndex: 0,
   };
+
+  componentDidMount() {
+    setInterval(() => this.nextSlide(), SLIDE_TIME_DURATION);
+  }
 
   nextSlide() {
     const lastIndex = ImagesData.length - 1;
@@ -17,10 +21,6 @@ class Carousel extends Component {
     this.setState({
       currentImageIndex: index,
     });
-  }
-
-  componentDidMount() {
-    setInterval(() => this.nextSlide(), SLIDE_TIME_DURATION);
   }
 
   render() {
