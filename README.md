@@ -49,7 +49,7 @@ npm install
 npm run build
 ```
 
-### Demount setup
+### Demounting setup
 
 ```bash
 # remove the "build" directory
